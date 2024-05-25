@@ -29,14 +29,14 @@ declare const window: any;
     config = tempConfig;
   }
 
-  let workspace;
+  /*let workspace;
   if (config.folderUri) {
     workspace = { folderUri: URI.revive(config.folderUri) };
   } else if (config.workspaceUri) {
     workspace = { workspaceUri: URI.revive(config.workspaceUri) };
   } else {
     workspace = undefined;
-  }
+  }*/
 
   /*if (workspace) {
     const workspaceProvider: IWorkspaceProvider = {

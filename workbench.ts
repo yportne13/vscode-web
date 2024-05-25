@@ -3,7 +3,7 @@ import {
 } from "vs/workbench/workbench.web.main";
 import { URI, UriComponents } from "vs/base/common/uri";
 import { IWorkbenchConstructionOptions } from "vs/workbench/browser/web.api";
-import { IWorkspace, IWorkspaceProvider } from "vs/workbench/services/host/browser/browserHostService";
+//import { IWorkspace, IWorkspaceProvider } from "vs/workbench/services/host/browser/browserHostService";
 declare const window: any;
 
 (async function () {
@@ -38,7 +38,7 @@ declare const window: any;
     workspace = undefined;
   }
 
-  if (workspace) {
+  /*if (workspace) {
     const workspaceProvider: IWorkspaceProvider = {
       workspace,
       open: async (
@@ -48,7 +48,7 @@ declare const window: any;
       trusted: true,
     };
     config = { ...config, workspaceProvider };
-  }
+  }*/
 
   const domElement = !!config.domElementId
     && document.getElementById(config.domElementId)

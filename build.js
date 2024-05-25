@@ -16,10 +16,10 @@ if (!fs.existsSync("node_modules")) {
   child_process.execSync("yarn", { stdio: "inherit" });
 }
 // Use simple workbench
-fs.copyFileSync(
+/*fs.copyFileSync(
   "../workbench.ts",
   "src/vs/code/browser/workbench/workbench.ts"
-);
+);*/
 
 // Compile
 child_process.execSync("yarn gulp vscode-web-min", { stdio: "inherit" });

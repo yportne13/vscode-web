@@ -12,8 +12,15 @@ if (!fs.existsSync("vscode")) {
 }
 process.chdir("vscode");
 
+const env = {
+  ...process.env,
+  ELECTRON_SKIP_BINARY_DOWNLOAD: 1,
+  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1,
+  VSCODE_SKIP_NODE_VERSION_CHECK: 1,
+};
+
 if (!fs.existsSync("node_modules")) {
-  child_process.execSync("yarn", { stdio: "inherit" });
+  child_process.execSync("npm ci", { stdio: "inherit", env });
 }
 // Use simple workbench
 fs.copyFileSync(
@@ -22,7 +29,7 @@ fs.copyFileSync(
 );
 
 // Compile
-child_process.execSync("yarn gulp vscode-web-min", { stdio: "inherit" });
+child_process.execSync("node --experimental-strip-types --max-old-space-size=8192 ./node_modules/gulp/bin/gulp.js vscode-web-min", { stdio: "inherit", env });
 
 // Extract compiled files
 if (fs.existsSync("../dist")) {

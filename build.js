@@ -29,7 +29,7 @@ fs.copyFileSync(
 );
 
 // Compile
-child_process.execSync("node --experimental-strip-types --max-old-space-size=8192 ./node_modules/gulp/bin/gulp.js vscode-web-min", { stdio: "inherit", env });
+child_process.execSync("node --experimental-strip-types --max-old-space-size=4096 ./node_modules/gulp/bin/gulp.js vscode-web-min", { stdio: "inherit", env });
 
 // Extract compiled files
 if (fs.existsSync("../dist")) {
